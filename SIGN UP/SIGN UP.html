@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration</title>
+    <link rel="stylesheet" type="text/css" href="signup.css" />
+    <style>
+      /* Add your custom styles here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url("https://i.pinimg.com/originals/bc/23/b9/bc23b955d467d91ccbcb21ba44dabf17.gif");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .container {
+        max-width: 400px;
+        padding: 20px;
+        background-color: lightskyblue;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        animation: fadein 1s ease-in-out;
+      }
+
+      @keyframes fadein {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+        color: #ff5c57;
+        animation: slidein 1s ease-in-out;
+      }
+
+      @keyframes slidein {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+        animation: fadein 1s ease-in-out;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: black;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 95%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 14px;
+      }
+
+      .password-container {
+        position: relative;
+      }
+
+      .password-toggle {
+        position: absolute;
+        top: 45%;
+        right: 10px;
+        size: 50px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: black;
+        z-index: 1;
+        transition: color 0.3s ease;
+      }
+
+      .password-toggle:hover {
+        color: blueviolet;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: rgb(243, 119, 70);
+        border: none;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in;
+        animation: slidein 1s ease-in-out;
+      }
+
+      .btn:hover {
+        background-color: rgb(87, 87, 249);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="https://media2.giphy.com/media/Ltz1ZA728qKw4mEY94/giphy.gif"
+        height="200"
+        width="350"
+      />
+      <br /><br />
+      <form id="signup-form" action="signup.php" method="POST">
+        <div class="form-group">
+          <label for="username">UserName:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group password-container">
+          <label for="password">Password:</label>
+          <div style="position: relative">
+            <input type="password" id="password" name="password" required />
+            <span class="password-toggle" onclick="togglePasswordVisibility()"
+              >&#128065;</span
+            >
+          </div>
+        </div>
+        <div class="form-group password-container">
+          <label for="confirm-password">Confirm Password:</label>
+          <div style="position: relative">
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm_password"
+              required
+            />
+            <span
+              class="password-toggle"
+              onclick="toggleConfirmPasswordVisibility()"
+              >&#128065;</span
+            >
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn">SIGN UP</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="signup.js"></script>
+    <script>
+      function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("password");
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+        } else {
+          passwordInput.type = "password";
+        }
+      }
+
+      function toggleConfirmPasswordVisibility() {
+        var confirmPasswordInput = document.getElementById("confirm-password");
+        if (confirmPasswordInput.type === "password") {
+          confirmPasswordInput.type = "text";
+        } else {
+          confirmPasswordInput.type = "password";
+        }
+      }
+    </script>
+  </body>
+</html>
